@@ -1,0 +1,16 @@
+<!-- <nav>
+  <a routerLink="/sibling1" routerLinkActive="active">Sibling 1</a>
+  <a routerLink="/sibling2" routerLinkActive="active">Sibling 2</a>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div> -->
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+  <h1 class="mb-4">Data Flow Sibling1 => Sibling 2</h1>
+  <div class="mb-4">
+    <app-sibling1></app-sibling1>
+  </div>
+  <div>
+    <app-sibling2></app-sibling2>
+  </div>
+</div>

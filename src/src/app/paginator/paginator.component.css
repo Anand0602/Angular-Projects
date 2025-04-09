@@ -1,0 +1,14 @@
+.pagination {
+    margin-top: 20px;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  .page-item .page-link {
+    color: #007bff;
+  }
+  

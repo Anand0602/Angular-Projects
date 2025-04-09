@@ -1,0 +1,70 @@
+
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="container mt-4">
+  
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input id="name" formControlName="name" class="form-control" />
+    <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="text-danger">
+      Name is required
+    </div>
+  </div>
+
+ 
+  <div class="mb-3">
+    <label for="address" class="form-label">Address:</label>
+    <input id="address" formControlName="address" class="form-control" />
+    <div *ngIf="form.get('address')?.invalid && form.get('address')?.touched" class="text-danger">
+      Address is required
+    </div>
+  </div>
+
+ 
+  <div class="mb-3">
+    <label class="form-label">Would you like to add a location?</label><br />
+    <div class="form-check form-check-inline">
+      <input type="radio" formControlName="decision" value="yes" class="form-check-input" id="yes" />
+      <label for="yes" class="form-check-label">Yes</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" formControlName="decision" value="no" class="form-check-input" id="no" />
+      <label for="no" class="form-check-label">No</label>
+    </div>
+  </div>
+
+  
+  <div formArrayName="locationInfo">
+    <div
+      *ngFor="let group of locationInfo.controls; let i = index"
+      [formGroupName]="i"
+      class="mb-3"
+    >
+      <label for="location-{{ i }}" class="form-label">Location {{ i + 1 }}:</label>
+      <input
+        id="location-{{ i }}"
+        type="text"
+        formControlName="location"
+        class="form-control"
+        placeholder="Enter Location"
+      />
+      <div *ngIf="group.get('location')?.invalid && group.get('location')?.touched" class="text-danger">
+        Location is required
+      </div>
+    </div>
+  </div>
+
+ 
+  <button
+    type="button"
+    class="btn btn-outline-primary mt-2"
+    (click)="addLocationInput()"
+  >
+    + Add Location
+  </button>
+
+  
+  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>

@@ -1,0 +1,43 @@
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .mb-3, .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .text-danger {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    width: auto;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .btn-outline-primary {
+    border: 1px solid #007bff;
+    color: #007bff;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .border {
+    border: 1px solid #ddd;
+    padding: 15px;
+  }
+  

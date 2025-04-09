@@ -1,0 +1,108 @@
+<div class="notification-container" *ngIf="notificationMessage">
+  <div class="alert" [ngClass]="notificationClass">
+    {{ notificationMessage }}
+  </div>
+</div>
+
+<div class="container mt-4">
+  
+  <button *ngIf="editingIndex === null" class="btn btn-primary mb-3" (click)="addFields()">+ Add</button>
+
+ 
+  <form [formGroup]="formGroup" *ngIf="fieldsArray.length > 0">
+    <div formArrayName="fieldsArray" class="row">
+      <div
+        *ngFor="let group of fieldsArray.controls; let i = index"
+        [formGroupName]="i"
+        class="d-flex flex-wrap border p-3 mb-3 align-items-center gap-3"
+      >
+        
+        <div class="flex-grow-1">
+          <input
+            formControlName="name"
+            class="form-control"
+            placeholder="Name"
+          />
+          <div *ngIf="group.get('name')?.invalid && group.get('name')?.touched" class="text-danger">
+            Name is required
+          </div>
+        </div>
+
+        
+        <div class="flex-grow-1">
+          <input
+            formControlName="address"
+            class="form-control"
+            placeholder="Address"
+          />
+          <div *ngIf="group.get('address')?.invalid && group.get('address')?.touched" class="text-danger">
+            Address is required
+          </div>
+        </div>
+
+        
+        <div class="flex-grow-1">
+          <input
+            formControlName="phone"
+            class="form-control"
+            placeholder="Phone"
+          />
+          <div *ngIf="group.get('phone')?.invalid && group.get('phone')?.touched" class="text-danger">
+            Phone is required
+          </div>
+        </div>
+
+        
+        <div class="flex-grow-1">
+          <input
+            formControlName="email"
+            class="form-control"
+            placeholder="Email"
+          />
+          <div *ngIf="group.get('email')?.invalid && group.get('email')?.touched" class="text-danger">
+            Valid Email is required
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  
+  <div *ngIf="editingIndex !== null" class="d-flex gap-2 mt-3">
+    <button class="btn btn-success" (click)="saveEdit()">Save Changes</button>
+    <button class="btn btn-danger" (click)="reset()">Reset</button>
+  </div>
+
+ 
+  <button *ngIf="editingIndex === null && fieldsArray.length > 0" class="btn btn-primary mt-3" (click)="submit()">Submit</button>
+
+  
+  <div *ngIf="submittedData.length > 0" class="mt-4">
+    <h5>Submitted Data:</h5>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of submittedData; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.phone }}</td>
+          <td>{{ data.email }}</td>
+          <td class="d-flex gap-2">
+            <button class="btn btn-warning btn-sm" (click)="editData(i)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteData(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
