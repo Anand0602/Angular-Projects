@@ -1,0 +1,99 @@
+<div class="container mt-5">
+  <div class="card p-4">
+      <form [formGroup]="AddressForm">
+
+
+      
+      <h5 class="mb-3">Add New Address</h5>
+
+      
+          <div class="row mb-3">
+              <div class="col-md-6">
+                  <label class="form-label">Customer Name<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" formControlName="customerName">
+              </div>
+              <div class="col-md-6">
+                  <label class="form-label">Address<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" formControlName="address">
+              </div>
+          </div>
+
+          <div class="row mb-3">
+              <div class="col-md-6">
+                  <label class="form-label">City</label>
+                  <input type="text" class="form-control" formControlName="city">
+              </div>
+              <div class="col-md-6">
+                  <label class="form-label">State</label>
+                  <input type="text" class="form-control" formControlName="state">
+              </div>
+          </div>
+
+          <div class="row mb-3">
+              <div class="col-md-6">
+                  <label class="form-label">Country</label>
+                  <input type="text" class="form-control" formControlName="country">
+              </div>
+              <div class="col-md-6">
+                  <label class="form-label">Region</label>
+                  <input type="text" class="form-control" formControlName="region">
+              </div>
+          </div>
+
+          <div class="row mb-3">
+              <div class="col-md-6">
+                  <label class="form-label">Postal Code</label>
+                  <input type="text" class="form-control" formControlName="postalCode">
+              </div>
+              <div class="col-md-6">
+                  <label class="form-label">Status</label>
+                  <div>
+                      <input type="radio" id="active" name="status" formControlName="status" value="Active">
+                      <label for="active">Active</label>
+                      <input type="radio" id="inactive" name="status" formControlName="status" value="Inactive" class="ms-3">
+                      <label for="inactive">Inactive</label>
+                  </div>
+              </div>
+          </div>
+
+          <div class="d-flex justify-content-end">  
+              <button type="submit" class="btn btn-primary me-2" (click)="addData()">Add</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+      
+  </form>
+  </div>
+
+  
+
+</div>
+
+<div class="mt-4" *ngIf="customerList.length > 0">
+  <h4>Customer List</h4>
+  <table class="table table-bordered mt-3">
+      <thead class="table-dark">
+          <tr>
+              <th>Customer Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Country</th>
+              <th>Region</th>
+              <th>Postal Code</th>
+              <th>Status</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let data of customerList">
+              <td>{{ data.customerName }}</td>
+              <td>{{ data.address }}</td>
+              <td>{{ data.city }}</td>
+              <td>{{ data.state }}</td>
+              <td>{{ data.region }}</td>
+              <td>{{ data.country }}</td>
+              <td>{{ data.postalCode }}</td>
+              <td>{{ data.status }}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

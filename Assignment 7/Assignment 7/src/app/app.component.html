@@ -1,0 +1,5 @@
+<h2>Form</h2>
+<app-c1 (formSubmitted)="handleFormSubmit($event)" [selectedUser]="selectedUser"></app-c1>
+
+<h2>Table</h2>
+<app-c2 [tableData]="submittedData" (editUser)="handleEditUser($event)"></app-c2>

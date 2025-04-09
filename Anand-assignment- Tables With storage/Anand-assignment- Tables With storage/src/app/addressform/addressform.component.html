@@ -1,0 +1,63 @@
+
+
+ <div>
+<h2 class="text-center mb-4">Add New Address</h2>
+<form (ngSubmit)="onSubmit()">
+  <div class="row ">
+    <div class="col">
+      <label for="customerName" class="form-label">Customer Name</label>
+      <input type="text" id="customerName" class="form-control" [(ngModel)]="addressForm.customerName" name="customerName" required>
+    </div>
+
+    <div class="col">
+      <label for="address" class="form-label">Address</label>
+      <input type="text" id="address" class="form-control" [(ngModel)]="addressForm.address" name="address" required>
+    </div>
+
+    <div class="col">
+      <label for="city" class="form-label">City</label>
+      <input type="text" id="city" class="form-control" [(ngModel)]="addressForm.city" name="city">
+    </div>
+
+    <div class="col">
+      <label for="state" class="form-label">State</label>
+      <input type="text" id="state" class="form-control" [(ngModel)]="addressForm.state" name="state">
+    </div>
+
+    <div class="col">
+      <label for="country" class="form-label">Country</label>
+      <input type="text" id="country" class="form-control" [(ngModel)]="addressForm.country" name="country">
+    </div>
+
+    <div class="col">
+      <label for="region" class="form-label">Region</label>
+      <input type="text" id="region" class="form-control" [(ngModel)]="addressForm.region" name="region">
+    </div>
+
+    <div class="col">
+      <label for="postalCode" class="form-label">Postal Code</label>
+      <input type="text" id="postalCode" class="form-control" [(ngModel)]="addressForm.postalCode" name="postalCode">
+    </div>
+
+    <div class="col">
+      <label class="form-label">Status</label><br>
+      <div class="form-check form-check-inline">
+        <input type="radio" id="active" name="status" value="Active" [(ngModel)]="addressForm.status" class="form-check-input" checked>
+        <label for="active" class="form-check-label">Active</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input type="radio" id="inactive" name="status" value="Inactive" [(ngModel)]="addressForm.status" class="form-check-input">
+        <label for="inactive" class="form-check-label">Inactive</label>
+      </div>
+
+    </div>
+
+  </div>
+  
+  <div class="text-center mt-4">
+    <button type="submit" class="btn btn-primary me-2">Add</button>
+    <button type="button" (click)="onReset()" class="btn btn-secondary">Reset</button>
+  </div>
+</form>
+</div>
