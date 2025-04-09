@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "username": "john123",
+      "email": "john@example.com",
+      "phone": "9876543210",
+      "password": "123456"
+    },
+    {
+      "id": "1371",
+      "name": "Alok Kumar",
+      "username": "alok123",
+      "email": "8825357611my@gmail.com",
+      "phone": "08521563193",
+      "password": "12345"
+    },
+    {
+      "id": "1bde",
+      "name": "Alok Kumar",
+      "username": "alokgupta85",
+      "email": "8825357611my@gmail.com",
+      "phone": "8521563193",
+      "password": "7654321"
+    },
+    {
+      "id": "b55b",
+      "name": "alksjd",
+      "username": "jansdja",
+      "email": "dhsjba@.com",
+      "phone": "8273112312",
+      "password": "1234567"
+    },
+    {
+      "id": "ecdb",
+      "name": "anu",
+      "username": "anuarya",
+      "email": "anuarya@gmail.com",
+      "phone": "9898798372",
+      "password": "thankuu"
+    }
+  ]
+}

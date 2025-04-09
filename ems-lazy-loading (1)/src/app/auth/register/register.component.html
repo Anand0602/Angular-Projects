@@ -1,0 +1,91 @@
+<h2 class="text-center">Register</h2>
+
+<form (ngSubmit)="register()" #registerForm="ngForm" class="container p-4 border rounded shadow-lg w-50">
+  
+  <!-- Name -->
+  <div class="mb-3">
+    <label class="form-label">Name:</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      [(ngModel)]="name" 
+      name="name" 
+      required 
+      #nameField="ngModel" />
+    <div *ngIf="nameField.invalid && nameField.touched" class="text-danger">
+      <small *ngIf="nameField.errors?.['required']">Name is required.</small>
+    </div>
+  </div>
+
+  <!-- Username -->
+  <div class="mb-3">
+    <label class="form-label">Username:</label>
+    <input 
+      type="text" 
+      class="form-control"
+      [(ngModel)]="username" 
+      name="username" 
+      required 
+      #usernameField="ngModel" />
+    <div *ngIf="usernameField.invalid && usernameField.touched" class="text-danger">
+      <small *ngIf="usernameField.errors?.['required']">Username is required.</small>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="mb-3">
+    <label class="form-label">Email:</label>
+    <input 
+      type="email" 
+      class="form-control"
+      [(ngModel)]="email" 
+      name="email" 
+      required 
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$" 
+      #emailField="ngModel" />
+    <div *ngIf="emailField.invalid && emailField.touched" class="text-danger">
+      <small *ngIf="emailField.errors?.['required']">Email is required.</small>
+      <small *ngIf="emailField.errors?.['pattern']">Enter a valid email.</small>
+    </div>
+  </div>
+
+  <!-- Phone -->
+  <div class="mb-3">
+    <label class="form-label">Phone:</label>
+    <input 
+      type="text" 
+      class="form-control"
+      [(ngModel)]="phone" 
+      name="phone" 
+      required 
+      pattern="^[0-9]{10}$" 
+      #phoneField="ngModel" />
+    <div *ngIf="phoneField.invalid && phoneField.touched" class="text-danger">
+      <small *ngIf="phoneField.errors?.['required']">Phone number is required.</small>
+      <small *ngIf="phoneField.errors?.['pattern']">Enter a valid 10-digit phone number.</small>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-3">
+    <label class="form-label">Password:</label>
+    <input 
+      type="password" 
+      class="form-control"
+      [(ngModel)]="password" 
+      name="password" 
+      required 
+      minlength="6" 
+      #passwordField="ngModel" />
+    <div *ngIf="passwordField.invalid && passwordField.touched" class="text-danger">
+      <small *ngIf="passwordField.errors?.['required']">Password is required.</small>
+      <small *ngIf="passwordField.errors?.['minlength']">Minimum 6 characters required.</small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Register</button> <!-- Removed [disabled] -->
+</form>
+
+<div class="text-center mt-3">
+  <a routerLink="/auth/login" class="text-decoration-none">Already have an account? Login</a>
+</div>

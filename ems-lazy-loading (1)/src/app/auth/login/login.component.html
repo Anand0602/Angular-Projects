@@ -1,0 +1,38 @@
+<h2>Login</h2>
+<form (ngSubmit)="login()" #loginForm="ngForm">
+  
+  <!-- Email -->
+  <label>Email:</label>
+  <input 
+    type="email" 
+    [(ngModel)]="email" 
+    name="email" 
+    required 
+    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$" 
+    #emailField="ngModel" />
+  <div *ngIf="emailField.invalid && emailField.touched">
+    <small *ngIf="emailField.errors?.['required']">Email is required.</small>
+    <small *ngIf="emailField.errors?.['pattern']">Enter a valid email.</small>
+  </div>
+  <br>
+
+  <!-- Password -->
+  <label>Password:</label>
+  <input 
+    type="password" 
+    [(ngModel)]="password" 
+    name="password" 
+    required 
+    minlength="6" 
+    #passwordField="ngModel" />
+  <div *ngIf="passwordField.invalid && passwordField.touched">
+    <small *ngIf="passwordField.errors?.['required']">Password is required.</small>
+    <small *ngIf="passwordField.errors?.['minlength']">Minimum 6 characters required.</small>
+  </div>
+  <br>
+
+  <button type="submit" class="btn btn-primary">Login</button> <!-- Removed [disabled] -->
+
+</form>
+
+<a routerLink="/auth/register">Don't have an account? Register</a>
